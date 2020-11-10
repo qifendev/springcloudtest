@@ -1,0 +1,33 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: eureka-client-provider
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+server:
+  port: 7701
+
+eureka:
+  instance:
+    #    status-page-url: http://localhost:7701/test/aaa
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
+
+  client:
+    serviceUrl:
+      defaultZone: http://@eureka.user.name@:@eureka.user.password@@localhost:7700/eureka/
+
+

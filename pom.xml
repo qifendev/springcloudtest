@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>site.qifen</groupId>
+    <artifactId>springcloudtest</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springcloudtest</name>
+    <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <module>eureka-server</module>
+        <module>eureka-client-customer</module>
+        <module>eureka-client-provider</module>
+        <module>eureka-client-zuul</module>
+        <module>eureka-client-config-server</module>
+        <module>eureka-client-config-client</module>
+        <module>common</module>
+
+    </modules>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!--编译版本-->
+                    <source>11</source>
+                    <!--目标编译版本-->
+                    <target>11</target>
+                    <encoding>UTF-8</encoding>
+                    <!--跳过测试-->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,32 @@
+server:
+  port: 7703
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://@eureka.user.name@:@eureka.user.password@@localhost:7700/eureka/
+
+spring:
+  application:
+    name: eureka-client-zuul
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+
+zuul:
+  routes:
+    server:
+      path: /zuul/**
+      serviceId: eureka-client-provider
+      sensitiveHeaders: "*"
+    web:
+      path: /test/**
+      serviceId: eureka-client-customer
+      sensitiveHeaders: "*"
+
+#http://172.168.4.76:7703/zuul/test/aaa  provider的/test转发到zuul的/zuul/test
+
